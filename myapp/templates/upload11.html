@@ -1,0 +1,12 @@
+{% extends 'upload.html' %}
+{% block content %}
+<center>
+ 
+{% csrf_token %}
+ 
+
+</center>
+{% if url %}
+ <p>Uploaded file: <a href="{{url}}">{{url}}</a></p>
+{% endif %}
+{% endblock %}

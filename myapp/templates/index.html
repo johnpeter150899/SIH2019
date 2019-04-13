@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+<style>
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+html, body
+{
+    margin: 0px;
+}
+div.container
+{
+    font-family: Raleway;
+	text-align: left;
+}
+
+
+div.container a
+{
+    color: #FFF;
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding: 5px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+
+}
+.teal
+{
+    background: #009688;
+    height:85px;
+}
+
+/* Border from Y to X  */
+div.borderYtoX a:before, div.borderYtoX a:after
+{
+    position: absolute;
+    opacity: 0.5;
+    height: 100%;
+    width: 2px;
+    content: '';
+    background: #FFF;
+    transition: all 0.3s;
+}
+
+div.borderYtoX a:before
+{
+    left: 0px;
+    top: 0px;
+}
+
+div.borderYtoX a:after
+{
+    right: 0px;
+    bottom: 0px;
+}
+div.borderYtoX a:hover:before, div.borderYtoX a:hover:after
+{
+    opacity: 1;
+    height: 2px;
+    width: 100%;
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #009688;
+  color: white;
+  text-align: center;
+}
+.mySlides {display:none;
+padding:25px 450px;}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+</style>
+</head>
+<body>
+<div class="container teal borderYtoX">
+
+  <img src="{% static "logo.png" %}" style="width:250px;height:60px;">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+  <a>HOME</a>
+  <a href =" {% url 'about' %}">ABOUT</a>
+  <a href = "{% url 'index2' %}">SEARCH</a>
+  <a href = "{% url 'download' %}">DOWNLOAD</a>    
+  <a href = "{% url 'clustering' %}">CLUSTERING</a> 
+  
+ 
+</div>
+
+
+
+<div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides" src="{% static "lab5.jpg" %}" style="width:700px";height:650px;">
+  <img class="mySlides" src="{% static "lab2.jpg"%}" style="width:600px";height:SS650px;>
+  <img class="mySlides" src="{% static "lab3.jpg"%}" style="width:600px";height:650px;>
+  <img class="mySlides" src="{% static "lab8.jpg"%}" style="width:600px";height:650px;>
+</div>
+
+
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+
+</script>
+</body>
+
+
+
+
+
+<div class="footer">
+ <p>&copy; Copyright 2019 </p>
+</div>
+
+</html>
